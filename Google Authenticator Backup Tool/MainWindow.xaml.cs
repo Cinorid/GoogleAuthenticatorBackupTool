@@ -64,11 +64,9 @@ namespace Google_Authenticator_Backup_Tool
 				if (sw.BaseStream.CanWrite)
 				{
 					lstOperations.Items.Add("Create Temp Folder");
-					sw.WriteLine("cd %temp%");
-					System.Threading.Thread.Sleep(500);
 					sw.WriteLine("mkdir authenticator-backup");
 					System.Threading.Thread.Sleep(500);
-					sw.WriteLine("cd \"%temp%\\authenticator-backup\"");
+					sw.WriteLine("cd \"authenticator-backup\"");
 
 					lstOperations.Items.Add("Elevating root access");
 					sw.WriteLine("adb shell su");
@@ -94,7 +92,7 @@ namespace Google_Authenticator_Backup_Tool
 					sw.WriteLine("sqlite3 ./databases \"select * from accounts\"");
 					System.Threading.Thread.Sleep(100);
 
-					using (SQLiteConnection connection = new SQLiteConnection("Data Source="+Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)+"\\temp\\authenticator-backup\\databases;Version=3;"))
+					using (SQLiteConnection connection = new SQLiteConnection("Data Source="+ AppDomain.CurrentDomain.BaseDirectory + "\\authenticator-backup\\databases;Version=3;"))
 					{
 						connection.Open();
 
