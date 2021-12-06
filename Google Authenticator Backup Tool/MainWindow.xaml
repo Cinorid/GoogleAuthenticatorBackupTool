@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Google_Authenticator_Backup_Tool"
-        xmlns:gma="clr-namespace:Gma.QrCodeNet.Encoding.Windows.WPF;assembly=Gma.QrCodeNet.Encoding"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -20,11 +19,11 @@
         <TextBlock Text=""/>
         <Button Content="Start Backup" Grid.Row="0" Grid.Column="1" Click="Button_Click"/>
         <ListBox Grid.Row="1" Grid.ColumnSpan="2" x:Name="lstOperations"/>
-        <ListBox Grid.Row="2" Grid.ColumnSpan="2" x:Name="lstResults">
+        <ListBox Grid.Row="2" Grid.ColumnSpan="2" x:Name="lstResults" d:DesignSource="{d:DesignInstance Type=local:GAItem}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <gma:QrCodeImgControl Text="{Binding url}" />
+                        <Image Source="{Binding image}"/>
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="1*"/>
