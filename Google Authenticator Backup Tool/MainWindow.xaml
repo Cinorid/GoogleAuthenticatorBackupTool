@@ -15,11 +15,15 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
         <TextBlock Text=""/>
-        <Button Content="Start Backup" Grid.Row="0" Grid.Column="1" Click="Button_Click"/>
-        <ListBox Grid.Row="1" Grid.ColumnSpan="2" x:Name="lstOperations"/>
-        <ListBox Grid.Row="2" Grid.ColumnSpan="2" x:Name="lstResults" d:DesignSource="{d:DesignInstance Type=local:GAItem}">
+        <Button Content="Start Backup" Grid.Row="0" Grid.Column="1" Click="ButtonStart_Click"/>
+        <Button Content="Export json" Grid.Row="0" Grid.Column="2" Click="ButtonExport_Click"/>
+        <Button Content="Open DB" Grid.Row="0" Grid.Column="3" Click="ButtonOpenDB_Click"/>
+        <ListBox Grid.Row="1" Grid.ColumnSpan="4" x:Name="lstOperations"/>
+        <ListBox Grid.Row="2" Grid.ColumnSpan="4" x:Name="lstResults" d:DesignSource="{d:DesignInstance Type=local:GAItem}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
